@@ -13,12 +13,8 @@ namespace BankAccountTest
 		public void AnAcceptanceTest()
 		{
 			List<string> output = new List<string>();
-			var consoleWriter = A.Fake<IConsoleWriter>();
-			A.CallTo(() => consoleWriter.WriteLine(A<string>.Ignored))
-				.Invokes(s => output.Add(s.GetArgument<string>(0)));
-
-			var operationService = new OperationService();
-			var service = new AccountService(operationService);
+			
+			var service = Create();
 			service.Deposit(1000);
 			service.Withdraw(100);
 			service.Deposit(500);
@@ -32,18 +28,13 @@ namespace BankAccountTest
 				"01/04/2015|1000,00|1000,00"}, 
 				output);
 		}
-	}
 
-	public class OperationService : IOperationService
-	{
-		public void Store(int amount)
+		private static AccountService Create()
 		{
-			
+			var service = new AccountService(new OperationService(), new PrintService());
+			return service;
 		}
 	}
 
-	public interface IConsoleWriter
-	{
-		void WriteLine(string line);
-	}
+	
 }

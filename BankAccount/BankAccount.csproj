@@ -43,6 +43,11 @@
   <ItemGroup>
     <Compile Include="AccountService.cs" />
     <Compile Include="IAccountService.cs" />
+    <Compile Include="IOperation.cs" />
+    <Compile Include="IOperationService.cs" />
+    <Compile Include="IPrintService.cs" />
+    <Compile Include="OperationService.cs" />
+    <Compile Include="PrintService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
