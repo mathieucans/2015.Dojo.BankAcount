@@ -11,4 +11,10 @@ namespace BankAccount
 		void Withdraw(int amount);
 		void PrintStatement();
 	}
+
+
+	public interface IOperationService
+	{
+		void Store(int amount);
+	}
 }
