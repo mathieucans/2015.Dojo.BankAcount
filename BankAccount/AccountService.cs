@@ -13,11 +13,12 @@
 
 		public void Deposit(int amount)
 		{
-			_operationService.Store(amount);
+			_operationService.StoreDeposit(amount);
 		}
 
 		public void Withdraw(int amount)
 		{
+			_operationService.StoreWithdraw(amount);
 		}
 
 		public void PrintStatement()
